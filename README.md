@@ -1,5 +1,5 @@
 # Speech Synchronization Test
-###M. Florencia Assaneo 2021
+###M Florencia Assaneo 2021
 
 Files required to run and analyze the Speech Synchrony Test 
 
