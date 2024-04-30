@@ -1,0 +1,3 @@
+# ignore all files and folders in /data excluding the subfolder /data/examples
+data/*
+!data/s_example_1/
