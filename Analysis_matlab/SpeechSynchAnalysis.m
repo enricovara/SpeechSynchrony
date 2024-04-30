@@ -14,8 +14,15 @@
 clearvars
 close all
 
-subject_code='example';               % Name of the audio file with the recorded speech
-Test_Version='ImpFix';                % Version of the test used ImpFix for the Implicit Fixed or ExpAcc for the Explicit Accelerated
+% Change the current directory to the directory of the executing file
+cd(fileparts(mfilename('fullpath')));
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Experiment Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+num_runs = 2;
+Test_Version='ExpAcc'; % Version of the test used ImpFix for the Implicit Fixed or ExpAcc for the Explicit Accelerated
+subject_code='s_example_1'; % Name of the audio file with the recorded speech
 
 addpath('ExtraScriptsData/')
 %%% Loads the envelope of the stimulus, its sampling frequency,
@@ -25,9 +32,9 @@ envelope_heard_filt=envelope_filt;  % Envelope of the perceived signal filtered 
 clear envelope envelope_filt;
 
 figure('name', 'General obverview of the data')
-for iRun=1:2
+for iRun=1:num_runs
     
-    file_name=[subject_code '_run' num2str(iRun) '.wav'];
+    file_name = fullfile('..', 'data', subject_code, ['output_' num2str(iRun) '.wav']);
     
     %%% STEP 1: Loads, demean and takes the envelope of the spoken syllables
     [signal, Fs]=audioread(file_name);
